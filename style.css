@@ -1,5 +1,5 @@
 body {
-    background-image: url("/img/ccr-novos-trens-5-de-61.jpg");
+    background-image: url("./ccr-novos-trens-5-de-61.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -8,4 +8,38 @@ form{
     width: 100%;
     height: 100%;
     margin-top: 100px;
+    }
+
+form [type=submit]{
+        width: 15%;
+        height: 40px;
+        cursor: pointer;
+        border-radius: 30px;
+    }
+form [type=text]{
+        width: 30%;
+        height: 30px;
+        border: 1px solid #000000;
+        padding-left: 10px;
+        margin: 10px 0;
+    }
+    form [type=password]{
+        width: 30%;
+        height: 30px;
+        border: 1px solid #000000;
+        padding-left: 10px;
+        margin: 10px 0;
+    }
+
+#login {
+       background-color: #E6E6FA;
+       max-width: 500px;
+       width: 70%;
+       padding: 20px;
+       position: relative;
+       left: 50%;
+       top: 50%;
+       bottom: -50%;
+       transform: translate(-50%, -50%, -50%);
+       box-align: center;
 }
