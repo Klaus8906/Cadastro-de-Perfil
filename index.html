@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html> 
+  <head>
+    <title>Cadastro de Perfil do Usuário</title>
+    <meta charset="utf-8" /> 
+    <link rel="stylesheet" href="style.css">
+    <script>
+      window.onload = () => {
+        nome.onchange = () => console.log('change', nome.value)
+        nome.oninput = () => {
+            let = caracterInvalido = '()*&%$#@?/|<>:{[}].!1234567890_-';
+            if(caracterInvalido.indexOf(nome.value.charAt(nome.value.length-1))>=0)
+              nome.value = nome.value.substr(0,nome.value.length-1);
+            nome.value = nome.value.toUpperCase();
+        }
+        nome.onblur = () => {
+            if(nome.value.length == 0){
+              nome.style.border = "thin red solid"
+              instrucoes.innerHTML = "<u>Campo obrigtório</u>";
+              instrucoes.style.color = "white"}
+        }
+
+        senha.onchange = () => console.log(senha.value);
+        senha.onchange = () => console.log('change', senha.value);
+        senha.onblur = () => {
+            if(senha.value.length < 4)
+              alert('Sua senha está fraca! Insira uma senha maior');
+        }
+        cpf.onblur = () => {
+            if(cpf.value.length < 11){
+              cpf.style.border = "thin red solid"
+              instrucoes.innerHTML = "<u>Insira novamente o CPF</u>";
+              instrucoes.style.color = "white"}
+        }
+        /*cep.onblur = () => {
+            if(cep.value.length < 8){
+              cep.style.border = "thin red solid"
+              instrucoes.innerHTML = "<u>Insira novamente o CEP</u>"
+              instrucoes.style.color = "white"}
+        }*/
+        login.onsubmit = () => {
+          localStorage.setItem("username", nome.value);
+          localStorage.setItem("password", senha.value);
+          localStorage.setItem("cpf", cpf.value);
+
+          alert(`Usuário ${nome.value} cadastrado!`);
+        }
+        
+      }
+    </script>
+  </head>
+  <body>
+    <form id ="login" action="https://postman-echo.com/post" method="post">
+      <p>
+        <label style="color:white" for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" /> </p>
+        <span id="instrucoes"></span>
+        <p><label style="color:white" for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" /> </p>
+        <p>
+          <label style="color:white" for="cpf"> CPF</label>
+          <input type="text" id="cpf" name="cpf" />
+        </p>
+        <p><button type="submit"> Cadastrar</button></p>
+    </form>
+  </body>
+</html>

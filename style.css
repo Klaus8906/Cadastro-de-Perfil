@@ -1,0 +1,11 @@
+body {
+    background-image: url("/img/ccr-novos-trens-5-de-61.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+form{
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    margin-top: 100px;
+}
